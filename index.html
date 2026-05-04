@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>안티터틀 페이지</title>
+
+	<style>
+
+		@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+	}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+	@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+		body,h1,h2,p{margin: 0; padding: 0;}
+		li{list-style-type: none}
+		a{display: flex; align-items: center; padding: 0 20px; text-decoration: none; font-weight: 400; color: black; font-family:'Paperozi'; transition: all 0.3s;}
+		a:hover{font-family: 'Paperozi'; transform: translateY(10px);}
+		nav {top: 0; left: 0; width: 100%; z-index: 10;background: transparent;}
+		div{background: transparent;}
+		@keyframes sway {
+    0%   { transform: rotate(-5deg)scaleX(-1); }
+    50%  { transform: rotate(5deg)scaleX(-1); }
+    100% { transform: rotate(-5deg)scaleX(-1); }
+}
+
+
+@keyframes moveSide {
+    0%   { transform: translateX(-17px); }
+    50%  { transform: translateX(17px); }
+    100% { transform: translateX(-17px); }
+}
+
+@keyframes neon-blink {
+  0%, 50%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px #FFFB00,
+      0 0 10px #FFFB00,
+      0 0 20px #FFFB00,
+      0 0 40px #FFFB00;
+  }
+
+  25%, 75% {
+    opacity: 0.5;
+    text-shadow:
+      0 0 2px #FFFB00,
+      0 0 5px #FFFB00;
+  }
+}
+		.flex{display: flex;}
+		.top{width: 100%; height: 100vh; overflow: hidden; position: relative;}
+		.gradient{position: absolute; bottom: 0; left: 0; width: 100%; height: 90%; }
+		.top video {width: 100%; height: 100vh; display: block; object-fit: cover; object-position: center 30%;}
+		.bar {width: 100%; height: 80px; background: linear-gradient(to bottom, rgba(255, 251, 0, 1), rgba(255, 251, 0, 0) ); display: flex; align-items: center; position: fixed; top: 0; z-index: 100;}
+		.nav-wrap {width: 1450px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;}
+		.logo {position: absolute; top: 70%; left: 10%; z-index: 4; font-size: 10rem; font-weight: 900; color: #FFFB00; text-align: left; font-family: 'Paperozi';}
+		.under{position: absolute; top: 60%; left: 10%;  color: black; text-align: left; z-index: 5; font-size: 2rem; font-weight: 700;}
+		.menu {display: flex; align-items: center; gap: 20px;}
+		.divv{width: 100%; margin: auto; padding: 450px 0 0 0; background:transparent; color: black; font-size: 3rem; font-weight: 700; text-align: center;display: flex; flex-direction: column;}
+		.point{color: #FFFB00;}
+		.sub{width: 1000px; margin: auto; padding: 250px 0px 0 0; /*background: lightcyan;*/ z-index: 60;}
+		.sub2{width: 100%; margin: auto; padding: 250px 0px 0 0; background: linear-gradient(to bottom, rgba(255, 251, 0, 1)0%, rgba(255, 251, 0, 0)50% ); z-index: 50; margin-top: 400px;}
+		.sub3{width: 1000px; margin: auto;/*background: lightcyan;*/ z-index: 50;}
+		.sub4{width: 1000px; margin: auto; padding: 150px 0px 0 0; /*background: lightcyan;*/ z-index: 50; position: relative;}
+		.h1{text-align: center; color: #FFFB00; font-size: 4.5rem; font-weight: 900; padding: 500px 0 0 0;}
+		.h2{text-align: left; color: black; font-size: 4rem; font-weight: 700;}
+		.h22{text-align: left; color: black; font-size: 4rem; font-weight: 700; margin-top: 150px;}
+		.h23-1{text-align: center; color: #black; font-size: 3rem; font-weight: 700; margin-bottom: 400px; margin-top: 400px}
+		.h23{text-align: center; color: #black; font-size: 3rem; font-weight: 700; margin-bottom: 400px;}
+		.h24{text-align: center; color: black; font-size: 4rem; font-weight: 700; margin-bottom: 100px; margin-top: -100px;}
+		.h25{text-align: left; color: #FFFB00; font-size: 4rem; font-weight: 700;}
+		.p1{font-size: 1.2rem; color: black; padding: 40px 0 0 0;line-height: 1.5; margin-left: 150px;}
+		.p2{font-size: 1.2rem; color: black; padding: 40px 0 0 0; margin-left: 150px; line-height: 1.5;}
+		.p3{font-size: 1.2rem; color: white; padding: 40px 0 0 0; line-height: 1.5; z-index: 1; position: relative;}
+		.p4{font-size: 1.2rem; color: black; padding: 40px 0 0 0; line-height: 1.5; position: relative; z-index: 1}
+		.p5{font-size: 1.2rem; color: white; padding: 40px 0 0 0; line-height: 1.5; z-index: 60; position: relative;}
+		.techbold{font-size: 1.5rem; color: white; font-weight: 700;}
+		.techbold2{font-size: 1.5rem; color: black; font-weight: 700;}
+		.imgright{max-width: 40%; height: auto; display: block; margin-left: auto; margin-right: -60px;}
+		.imgleft{max-width: 40%; height: auto; display: block; margin-left: -40px; margin-right: auto; }
+		.midsec{width: 100%; background: #F2F2F2;}
+		.blursec{width: 100%; background: url(neck.png); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment:fixed; padding: 300px 0;}
+		.foryou{width: 100%; height: 700px; background: url(crush.png);background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment:fixed; margin-top: 300px;display: flex;
+    justify-content: center;
+    align-items: center;}
+		.imgrow{display: flex; justify-content: center; align-items: flex-end; gap: 70px; margin-top: -200px;}
+		.content-row{ display: flex; align-items: flex-start; gap: 100px; margin-top: 120px; z-index: 60; }
+		.ttman{width: 300px; margin-left: auto; height: auto; animation: sway 2s ease-in-out infinite;
+    transform-origin: top center;display: block; margin-top: -190px; margin-right: 70px;}
+    	.ttwoman{width: 550px; height: auto; margin-left: auto; display: block; margin-top: -170px; animation: moveSide 1.5s linear infinite;}
+  		.text-box{ width: 600px; flex: 1; margin-top: 60px; /*background: white;*/ z-index: 60; padding: 40px 0 0 0;}
+  		.text-box2{ width: 600px; flex: 1; margin-top: 60px; /*background: gray;*/ z-index: 70; position: absolute; top: 380px; left: 500px;}
+  		.text-box3{ width: 600px; flex: 1; margin-top: 60px; /*background: gray;*/ z-index: 70; position: absolute; top: 990px; left: 50px;}
+  		.text-box4{ width: 600px; flex: 1; margin-top: 60px; /*background: gray;*/ z-index: 70; position: absolute; top: 1600px; left: 500px;}
+
+  		.girl{width: 500px; height: auto; margin-left: 600px; display: block; margin-top: -370px; margin-bottom: 100px;}
+  		.footer{width: 100%; height: 380px; background: #FFFB00;}
+  		.divfor{background:transparent; color: #FFFB00; font-size: 5rem; font-weight: 700; text-align: center; margin: auto;}
+  		.divfor p {color: #FFF; text-shadow:
+        0 0 5px #FFFB00,
+        0 0 10px #FFFB00,
+        0 0 20px #FFFB00,
+        0 0 40px #FFFB00;}
+        .main{width: 100%; height: 700px; background: url(main.png); background-size: cover; background-position: center; background-attachment: fixed; color: #FFFB00; font-size: 13rem; font-weight: 900; text-align: center; display: flex; flex-direction: column; justify-content: space-between;}
+        .anti{color: #FFFB00; animation: neon-blink 3s infinite;}
+        .turtle{color: #FFFB00; animation: neon-blink 3s infinite;}
+        .anti, .turtle{margin: 0;  line-height: 1;}
+ 		.ttlogo img {height: 50px; width: auto; display: block;}
+ 		.ttlogo span { font-family: 'Paperozi'; font-size: 1.5rem; font-weight: 500; color: #484848;}
+ 		.ttlogo {display: flex; align-items: center; gap: 20px;}
+ 		.stepdiv{width: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); margin: auto; z-index: 50;}
+ 		.step3{width: 1000px; height: auto; margin: auto; display: block; margin-top: 100px; margin-bottom: 200px;}
+ 		.one{width:30px; height:auto; position: absolute; top:-80px;  z-index:0;}
+ 		.two{width:60px; height:auto; position: absolute; top:-80px;  z-index:0;}
+ 		.three{width:60px; height:auto; position: absolute; top:-75px; z-index:0;}
+
+		html {scroll-behavior: smooth;}
+		.side-nav { position: fixed; top: 120px; right: 70px !important; display: flex; flex-direction: column; align-items: flex-end; gap: 15px; z-index: 1000; width: auto !important;}
+		.side-nav a { font-family: 'Paperozi'; font-size: 1.5rem; font-weight: 500; color: #9c9c9c; text-decoration: none; padding: 5px 0; transition: all 0.3s;}
+		.side-nav a:hover { color: black; font-family: 'Paperozi'; transform: translateX(-15px);}
+		.tech{width: 350px; height: auto; margin-left: 0px; display: block; margin-top: 100px; margin-bottom: 200px; z-index: 50}
+		.techdiv{padding: 40px 0 0 0; margin-left: 130px; z-index: 50; position: relative;}
+		.tech-txt{widht: 200px; z-index: 10; /*background: gray;*/ position: absolute; top: 180px; left: 480px; color: white;}
+		.tech-txt2{widht: 200px; z-index: 10; /*background: gray;*/ position: absolute; top: 555px; left: 480px; color: white;}
+		.tech-txt3{widht: 200px; z-index: 10; /*background: gray;*/ position: absolute; top: 930px; left: 480px; color: white;}
+
+
+	</style>
+
+</head>
+<body>
+<section class="bar">
+	<nav>
+		 <div class="nav-wrap">
+		 	<div class="ttlogo">
+		 		<img src="ttlogo.png" alt="logo"> 
+		 		<span>Anti-Turtle</span>
+		 	</div>
+			    <div>
+				    <ul class="menu">
+					      <li>
+					      	<a href="#">Login</a>
+					      </li>
+					      <li>
+					      	<a href="#">Sign up</a>
+					      </li>
+					      <li>
+					      	<a href="#">Mypage</a>
+					      </li>
+				    </ul>
+				</div>
+		 </div>
+		</nav>
+</section>
+
+<nav class="side-nav">
+    <a href="#about-section">About</a>
+    <a href="#tech-section">Steps</a>
+    <a href="#steps-section">Tech</a>
+    <a href="#reviews-section">Reviews</a>
+</nav>
+
+
+<section class="top">
+ 		 <video autoplay muted loop playsinline>
+    		<source src="top.mp4" type="video/mp4">
+  		</video>
+  		<div class="gradient"></div>
+  		 <div class="under">
+		 	거북이가 되어가는 당신을 위한<br>단 하나의 선택
+		</div>
+		<div class="logo">Anti-Turtle</div>
+</section>
+
+<section class="midsec">
+	<div class="divv">
+		<section class="blursec">
+		<p>2024년 기준 국내 거북목 환자는 약 254만 명으로, 
+			<br>10년 전 대비 60만 명 이상 급증하며 <span class="point">'국민병'</span>이 되었습니다.</p>
+		</section>
+		<div class="imgrow">
+			<img src="leftppl.png" class="imgleft">
+			<img src="ttppl.png" class="imgright">
+		</div>
+	</div>
+</section>
+<section class="midsec">
+	<div class="sub">
+	  <h2 class="h2">
+	    출퇴근길 지하철 안,<br>
+	    모니터 앞에서의 8시간,<br>
+	    자기 전 스마트폰을 보는 시간까지.
+	  </h2>
+			<div class="text-box">
+		      <p class="p1">
+		        디지털 기기가 우리 일상의 모든 순간을 채우면서<br>
+		        우리의 고개는 매일 조금씩 더 앞으로 쏟아지고 있습니다.
+		      </p>
+
+		      <p class="p1">
+		        화면에 집중할수록 머리를 지탱하는 목의 하중은<br>기하급수적으로 늘어나고,<br>
+		        이는 곧 만성적인 통증으로 이어지게 되죠.
+		      </p>
+		    </div>
+		    <img src="ttman.png" class="ttman">
+  		</div>
+	</div>
+
+	<div class="sub">
+		<h2 class="h2">
+			자세를 바르게 고쳐 앉아 보지만,<br>어느새 다시 나오는 고개.
+		</h2>
+
+		<div class="text-box">
+			<p class="p2">
+				당신의 의지가 부족해서가 아닙니다.</p>
+			<p class="p2">
+				한 번 굳어진 습관과 근육을<br>혼자만의 힘으로 되돌리는것은,<br>결코 쉬운 일이 아니니까요.
+			</p>
+		</div>
+			<img src="ttwoman.png" class="ttwoman">
+		</div>
+		<div class="divfor">
+			<section class="foryou">
+				<p>더 이상 방치하기에는 늦었습니다.</p>
+			</section>
+		</div>
+			<h2 class="h23-1">그래서, 접근 방식을 바꿨습니다.</h2>
+			<h2 class="h23">당신의 무너진 넥라인을 바로잡아줄<br>단 하나의 솔루션,</h2>
+	</div>
+	<section>
+		<div class="main">
+			<h1 class="anti">ANTI-</h1>
+			<h1 class="turtle">TURTLE</h1>
+		</div>
+	</section>
+</section>
+<section>
+	<div class="sub2">
+		<h2 class="h24">
+			의지력의 한계,<br>Anti-Turtle로 강제 종료하세요.
+		</h2>
+	<div class="sub3">
+		<div class="text-box">
+			<p class="p2">
+					다짐이 통하지 않는다면,<br>물리적으로 막아내는 수밖에 없습니다.
+				</p>
+			<p class="p2">
+				거북이화 강제 차단 디바이스 Anti-Turtle은<br>무너진 당신의 의지를 대신하는<br>가장 직관적이고 확실한 해결책입니다.
+			</p>
+			<p class="p2">
+				목이 앞으로 굽어지는 그 찰나의 순간을 통제하여,<br>어떤 상황에서도 당신의 바른 척추 라인을<br>강제로 사수합니다.
+			</p>
+		</div>
+		<img src="girl.png" class="girl">
+		</div>
+		
+	</div>
+</section>
+<section>
+	<div class="stepdiv">
+		<div class="sub4">
+		<h2 class="h25">
+			3단계 오토매틱
+			교정 시스템</h2>
+			<div class="text-box2">
+				<img src="1.png" class="one">
+				<p class="p3">기기의 센서가 사용자의 목 기울기를 스캔하여,<br>15도 이상 굽어지는 위험 순간을 즉각적으로<br>감지합니다.
+				</p>
+			</div>
+			<div class="text-box3">
+				<img src="2.png" class="two">
+				<p class="p4">잘못된 자세가 감지되는 즉시,<br>초커 안쪽 공간에 숨겨져 있던 에어백에 압축 공기가 주입되어<br>빠르게 부풀어 오릅니다.
+				</p>
+			</div>
+			<div class="text-box4">
+				<img src="3.png" class="three">
+			    <p class="p4">
+			    	팽창된 에어백이 턱을 밀어 올려<br>모니터로 향하던 고개를 정상 상태로 복원하고,<br>5분간 유지된 후 다시 초커 안으로 들어갑니다.
+			    </p>
+			</div>
+		</div>
+		<img src="step3.png" class="step3">
+	</div>
+</section>
+<section>
+	<div class="stepdiv">
+		<div class="sub4">
+		<h2 class="h25">
+			강한 교정력을 완성하는<br>항공우주급 테크놀로지
+		</h2>
+		<div class="techdiv">
+			<img src="tech.png" class="tech">
+			<div class="tech-txt">
+				<p class="techbold">항공우주 6축 3D 자이로스코프</p>
+				<p class="p3">우주선의 자세 제어에 쓰이는 초정밀 센서를<br>마이크로화하여 탑재했습니다.<br>0.1도의 미세한 각도 변화까지 계산하여<br>오작동 없는 정확한 교정 타이밍을 구현합니다.
+			</div>
+			<div class="tech-txt2">
+				<p class="techbold2">의료용 무광 티타늄 바디</p>
+				<p class="p4">피부 자극을 원천 차단하는 생체 친화적 금속이자,<br>120g이라는 깃털 같은 초경량을 실현하여<br>장시간의 모니터 작업에도<br>목에 피로감을 주지 않습니다.
+			</div>
+			<div class="tech-txt3">
+				<p class="techbold2">스마트 에어로-셀 패브릭</p>
+				<p class="p4">팽창하는 에어백의 성분은 압력 분산과 통기성에<br>특화된 나노 텍스처 소재를 적용해,<br>턱을 밀어 올리는 순간의 충격을 부드럽게 흡수하고<br>쾌적한 지지력을 제공합니다.
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+<section>
+	<div class="sub2">
+		<h2 class="h24">
+			1000개 이상의 고객 리뷰,<br>평균 평점 5.0이 증명하는<br>압도적인 효과
+		</h2>
+		<div>
+			1
+		</div>
+		<div>
+			2
+		</div>
+		<div>
+			3
+		</div>
+	
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+	<section>
+		<div>
+			footer
+		</div>
+	</section>
+</footer>
+
+
+
+</body>
+</html>
